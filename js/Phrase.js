@@ -3,9 +3,22 @@ class Phrase {
         this.phrase = phrase.toLowerCase();
     }
 
-    //method 1
+    /**
+    * Display phrase on game board
+    */
     addPhraseToDisplay() {
-
+        let placeholderList = document.querySelector('ul');
+        let individualLetters = this.phrase.split('');
+        individualLetters.forEach(letter => {
+            let placeholderLetter = document.createElement('li');
+            if (letter !== ' ') {
+                placeholderLetter.className = `hide letter ${letter}`;
+            } else {
+                placeholderLetter.className = 'space';
+            }
+            placeholderLetter.textContent = `${letter}`;
+            placeholderList.appendChild(placeholderLetter);
+        });
     }
 
     //method 2
