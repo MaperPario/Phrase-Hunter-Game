@@ -11,11 +11,11 @@ class Game {
     */
     createPhrases() {
         const phrases = [
-            new Phrase('java script'),
-            new Phrase('bird dog'),
-            new Phrase('blair witch'),
-            new Phrase('rune scape'),
-            new Phrase('chill hop')
+            new Phrase('through the fire and the flames'),
+            new Phrase('arrow in the knee'),
+            new Phrase('karens of the usa'),
+            new Phrase('king of the hill'),
+            new Phrase('fortnite sucks')
         ];
         return phrases;
     }
@@ -81,19 +81,27 @@ class Game {
     */
     handleInteraction(button) {
         button.disabled = true;
-        if () {
+        if (!this.activePhrase.phrase.includes(button.textContent)) {
             button.classList = 'wrong';
-            this.removeLife()
-        }
-        
-        if () {
+            this.removeLife(); 
+        } 
+        if (this.activePhrase.phrase.includes(button.textContent)) {
             button.classList = 'chosen';
-            this.acticePhrase.showMatchedLetter();
+            this.activePhrase.showMatchedLetter(button.textContent);
             this.checkForWin();
         }
-
-        if (this.checkForWin === true) {
-
+        if (this.checkForWin() === true) {
+            this.gameOver(true);
         }
+    }
+
+    /**
+    * Resets the game to freshly initialized game
+    * Removes li elements in in 'Phrase' ul element
+    * Enable onscreen buttons, effectively resetting them for reuse
+    * Resets heart images for full-life
+    */
+    resetGame() {
+        
     }
 }
