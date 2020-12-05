@@ -7,27 +7,37 @@ class Phrase {
     * Display phrase on game board
     */
     addPhraseToDisplay() {
-        let placeholderList = document.querySelector('ul');
-        let individualLetters = this.phrase.split('');
+        const placeholderList = document.querySelector('ul');
+        const individualLetters = this.phrase.split('');
+
         individualLetters.forEach(letter => {
-            let placeholderLetter = document.createElement('li');
-            if (letter !== ' ') {
-                placeholderLetter.className = `hide letter ${letter}`;
-            } else {
-                placeholderLetter.className = 'space';
-            }
-            placeholderLetter.textContent = `${letter}`;
+            const placeholderLetter = document.createElement('li');
+
+            placeholderLetter.className = letter !== ' ' ? `hide letter ${letter}` : 'space';
+            placeholderLetter.textContent = letter;
+
             placeholderList.appendChild(placeholderLetter);
         });
     }
 
-    //method 2
-    checkLetter() {
-
+    /**
+    * Checks if passed letter is in phrase
+    * @param (string) letter - Letter to check
+    */
+    checkLetter(letter) {
+        if (this.phrase.includes(letter)) {
+            return true;
+        }
+        return false;
     }
 
-    //method 3
-    showMatchedLetter() {
-
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter) {
+        const lettersToUnhide = document.querySelectorAll(`.${letter}`);
+        
+        lettersToUnhide.forEach(letterElement => letterElement.className = `show letter ${letter}`);
     }
 }
