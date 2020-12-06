@@ -61,7 +61,6 @@ class Game {
         } else if (this.missed === 5) {
             this.gameOver(false);
         }
-        console.log(this.missed);
     }
 
     /**
@@ -70,9 +69,11 @@ class Game {
     */
     gameOver(gameWon) {
         const gameOverMessage = document.getElementById('game-over-message');
-        const overlay = document.querySelector('#overlay');
-        overlay.style.display = 'block';
+        const gameOverlay = document.querySelector('#overlay');
+
+        gameOverlay.style.display = 'block';
         gameOverMessage.textContent = gameWon === true ? 'You won!' : 'You lost. :( Try Again?';
+        this.resetGame();
     }
 
     /**
@@ -102,6 +103,17 @@ class Game {
     * Resets heart images for full-life
     */
     resetGame() {
-        
+        const letters = document.querySelector('ul');
+        const qwerty = document.querySelectorAll('.keyrow button');
+        const hearts = document.querySelectorAll('#scoreboard img');
+
+        letters.innerHTML = null;
+
+        qwerty.forEach(key => {
+            key.className = 'key';
+            key.disabled = false;
+        });
+
+        hearts.forEach(heart => heart.src = 'images/liveHeart.png');
     }
 }
