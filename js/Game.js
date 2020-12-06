@@ -72,6 +72,7 @@ class Game {
         const gameOverlay = document.querySelector('#overlay');
 
         gameOverlay.style.display = 'block';
+        gameOverlay.classList = gameWon === true ? 'win' : 'lost';
         gameOverMessage.textContent = gameWon === true ? 'You won!' : 'You lost. :( Try Again?';
         this.resetGame();
     }
