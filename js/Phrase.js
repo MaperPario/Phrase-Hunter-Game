@@ -37,7 +37,7 @@ class Phrase {
     */
     showMatchedLetter(letter) {
         const lettersToUnhide = document.querySelectorAll(`.${letter}`);
-        
+
         lettersToUnhide.forEach(letterElement => letterElement.className = `show letter ${letter}`);
     }
 }

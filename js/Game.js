@@ -72,8 +72,9 @@ class Game {
         const gameOverlay = document.querySelector('#overlay');
 
         gameOverlay.style.display = 'block';
-        gameOverlay.classList = gameWon === true ? 'win' : 'lost';
-        gameOverMessage.textContent = gameWon === true ? 'You won!' : 'You lost. :( Try Again?';
+        gameOverlay.classList = gameWon ? 'win' : 'lose';
+        gameOverMessage.textContent = gameWon ? 'You won!' : 'You lost. :( Try Again?';
+        
         this.resetGame();
     }
 
@@ -85,14 +86,14 @@ class Game {
         button.disabled = true;
         if (!this.activePhrase.phrase.includes(button.textContent)) {
             button.classList = 'wrong';
-            this.removeLife(); 
+            this.removeLife();
+            return;
         } 
         if (this.activePhrase.phrase.includes(button.textContent)) {
             button.classList = 'chosen';
             this.activePhrase.showMatchedLetter(button.textContent);
-            this.checkForWin();
         }
-        if (this.checkForWin() === true) {
+        if (this.checkForWin()) {
             this.gameOver(true);
         }
     }
