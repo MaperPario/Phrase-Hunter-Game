@@ -1,3 +1,4 @@
+const gameOverlay = document.querySelector('#overlay');
 
 let game;
 document.getElementById('btn__reset').addEventListener('click', () => {
@@ -13,6 +14,10 @@ qwertyKeyBoard.addEventListener('click', (event) => {
 });
 
 document.addEventListener('keyup', (event) => {
+    const isOverlayVisible = gameOverlay.style.display === 'block';
+    if (isOverlayVisible) {
+        return;
+    }
     const buttons = Array.from(document.querySelectorAll('#qwerty button'));
     const matchingButton = buttons.find(button => {
         return button.textContent === event.key;
