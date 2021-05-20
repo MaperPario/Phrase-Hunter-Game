@@ -1,6 +1,6 @@
 # Phrase Hunter Game!
 
-A browser-based, word guessing game called 'Phrase Hunter' with lives lost on incorrect guesses, letters disabled upon guessing and a game won/game over screen.
+*A browser-based, word guessing game called 'Phrase Hunter' with lives lost on incorrect guesses, letters disabled upon guessing and a game won/game over screen.*
 
 How to Run: 
  - Clone project, open folder and double click the index.html file. It should open the completed project in your default browser. 
