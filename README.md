@@ -1,4 +1,4 @@
-# Phrase Hunter Game!
+# [Phrase Hunter Game](https://jackson-hagin-portfolio.herokuapp.com/projects/3)
 
 *A browser-based, word guessing game called 'Phrase Hunter' with lives lost on incorrect guesses, letters disabled upon guessing and a game won/game over screen.*
 
